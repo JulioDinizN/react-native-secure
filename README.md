@@ -1,6 +1,6 @@
 # react-native-secure
 
-Package to handle local authentication
+Package to handle local authentication using biometrics
 
 ## Installation
 
