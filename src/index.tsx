@@ -27,3 +27,11 @@ const Secure = SecureModule
 export function multiply(a: number, b: number): Promise<number> {
   return Secure.multiply(a, b);
 }
+
+export function requireLocalAuth(): void {
+  return Secure.requireLocalAuth();
+}
+
+export function canAuthenticate(): void {
+  return Secure.canAuthenticate();
+}
