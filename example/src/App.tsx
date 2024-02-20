@@ -1,22 +1,12 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import {
-  multiply,
-  canAuthenticate,
-  requireLocalAuth,
-} from 'react-native-secure';
+import { canAuthenticate, requireLocalAuth } from 'react-native-secure';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result:</Text>
       <TouchableOpacity
         onPress={() => {
           canAuthenticate();
@@ -26,8 +16,12 @@ export default function App() {
       </TouchableOpacity>
       <View style={styles.separator} />
       <TouchableOpacity
-        onPress={() => {
-          requireLocalAuth();
+        onPress={async () => {
+          await requireLocalAuth({
+            title: 'title javascript test',
+            subtitle: 'Subtitle javascript test',
+            negativeButtonText: 'Negative',
+          });
         }}
       >
         <Text>Authenticate</Text>

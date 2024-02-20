@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import type { requireLocalAuthOptions } from './types';
 
 const LINKING_ERROR =
   `The package 'react-native-secure' doesn't seem to be linked. Make sure: \n\n` +
@@ -24,12 +25,10 @@ const Secure = SecureModule
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return Secure.multiply(a, b);
-}
-
-export function requireLocalAuth(): void {
-  return Secure.requireLocalAuth();
+export function requireLocalAuth(
+  options: requireLocalAuthOptions
+): Promise<void> {
+  return Secure.requireLocalAuth(options);
 }
 
 export function canAuthenticate(): void {

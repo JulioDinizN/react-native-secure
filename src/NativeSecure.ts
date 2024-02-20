@@ -1,9 +1,9 @@
 import type { TurboModule } from 'react-native';
 import { TurboModuleRegistry } from 'react-native';
+import type { requireLocalAuthOptions } from './types';
 
 export interface Spec extends TurboModule {
-  multiply(a: number, b: number): Promise<number>;
-  requireLocalAuth(): void;
+  requireLocalAuth(options: requireLocalAuthOptions): Promise<void>;
   canAuthenticate(): void;
 }
 
